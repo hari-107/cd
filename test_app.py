@@ -7,26 +7,17 @@ def test_home():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert b"Ship code with confidence." in response.data
-    assert b"CI/CD Lab" in response.data
+    assert b"Weather Application" in response.data
+    assert b"Check the current weather for any city." in response.data
 
 
-def test_pipeline():
+def test_weather_missing_city():
     client = app.test_client()
 
-    response = client.get("/pipeline")
+    response = client.get("/weather")
 
-    assert response.status_code == 200
-    assert b"From commit to deployment" in response.data
-
-
-def test_about():
-    client = app.test_client()
-
-    response = client.get("/about")
-
-    assert response.status_code == 200
-    assert b"Why this demo exists" in response.data
+    assert response.status_code == 400
+    assert response.json["error"] == "City is required"
 
 
 def test_health():
@@ -36,4 +27,4 @@ def test_health():
 
     assert response.status_code == 200
     assert response.json["status"] == "healthy"
-    assert response.json["service"] == "ci-cd-example"
+    assert response.json["service"] == "weather-app"
