@@ -42,6 +42,9 @@ def home():
         <div class="container">
             <h1>🚀 Flask CI/CD Demo</h1>
 
+            <p>Ship code with confidence.</p>
+            <p>CI/CD Lab</p>
+
             <p>
                 This website is deployed using
                 Continuous Integration and Continuous Deployment.
@@ -56,9 +59,35 @@ def home():
     """
 
 
+@app.route("/pipeline")
+def pipeline():
+    return """
+    <html>
+    <head><title>Pipeline</title></head>
+    <body>
+        <h1>CI/CD Pipeline</h1>
+        <p>From commit to deployment</p>
+    </body>
+    </html>
+    """
+
+
+@app.route("/about")
+def about():
+    return """
+    <html>
+    <head><title>About</title></head>
+    <body>
+        <h1>Why this demo exists</h1>
+        <p>This project demonstrates a basic Flask CI/CD workflow.</p>
+    </body>
+    </html>
+    """
+
+
 @app.route("/health")
 def health():
-    return {"status": "healthy"}
+    return {"status": "healthy", "service": "ci-cd-example"}
 
 
 if __name__ == "__main__":
