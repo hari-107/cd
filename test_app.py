@@ -7,8 +7,8 @@ def test_home():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert b"Weather Application" in response.data
-    assert b"Check the current weather for any city." in response.data
+    assert b"Weather Dashboard" in response.data
+    assert b"Search city" in response.data
 
 
 def test_weather_missing_city():
