@@ -14,7 +14,7 @@ def home():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>kanguva Dashboard</title>
+<title>Weather Dashboard</title>
 <style>
 * { box-sizing: border-box; }
 body {
